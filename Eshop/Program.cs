@@ -12,7 +12,9 @@ namespace Eshop
 
             shop.Buy("ItemName", 50);
 
-            shop.LoadItems();
+            shop.LoadItems("ItemName", 50);
+
+            Console.WriteLine(shop);
         }
     }
 }
