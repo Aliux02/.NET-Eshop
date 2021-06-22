@@ -13,17 +13,9 @@ namespace Eshop
 
 
 
-            List<Item> items = new List<Item>()
-            {
-                new Item{ Price=1.2M, Name="Cup", Quantity=59 },
-                new Item{ Price=8.99M, Name="Book", Quantity=25 },
-                new Item{ Price=3.2M, Name="Candy", Quantity=460 }
-            };
 
-            foreach (var g in items)
-            {
-                Console.WriteLine(g.Name);
-            }
+
+
             
 
             var shop = new Shop();
