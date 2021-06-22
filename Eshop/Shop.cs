@@ -16,24 +16,24 @@ namespace Eshop
 
         }
 
-        public string GetInfo()
-        {
-            return "glkadjga;dfgadofgaodi";
-        }
+        //public string GetInfo()
+        //{
+        //    return "glkadjga;dfgadofgaodi";
+        //}
 
         public void ListItems()
         {
-            throw new NotImplementedException();
+            // list items
         }
-        
+
         public void Buy(string itemName, int quantity)
         {
-            // to load items
+            // to buy items
         }
 
         public void LoadItems(string v1, int v2)
         {
-            throw new NotImplementedException();
+            // to load items
         }
     }
 }
