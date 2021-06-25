@@ -10,19 +10,12 @@ namespace Eshop
         static void Main(string[] args)
         {
             var command = "";
-
-
-
-
-
-
             
-
             var shop = new Shop();
 
             while (command != "Exit")
             {
-                Console.WriteLine("Enter command");
+                Console.WriteLine("Enter command 'add', 'buy', 'list'");
 
                 try
                 {
@@ -33,19 +26,31 @@ namespace Eshop
                     switch (ArrayOfEnteredText[0].ToLower())
                     {
                         case "add":
-                            shop.LoadItems(ArrayOfEnteredText[1], Int32.Parse(ArrayOfEnteredText[2]));
-                            Console.WriteLine("Case 1");
+                            Console.Write("Enter item name: ");
+                            string Name = Console.ReadLine();
+                            Console.Write("Enter item price: ");
+                            decimal Price = Convert.ToDecimal(Console.ReadLine());
+                            Console.Write("Enter item quantity: ");
+                            int Quantity = Convert.ToInt32(Console.ReadLine());
+                            shop.LoadItems(Name, Price, Quantity);
                             break;
                         case "buy":
+
                             Console.WriteLine("Case 2");
                             break;
                         case "list":
-                            Console.WriteLine("Case 2");
+                            shop.ListItems();
                             break;
                         default:
                             throw new InvalidOperationException();
                     }
                 }
+
+                //catch (InvalidOperationException)
+                //{
+                //    Console.WriteLine("Invalid command");
+                //}
+
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Something went wrong {ex.Message}");

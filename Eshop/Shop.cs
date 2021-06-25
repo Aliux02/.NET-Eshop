@@ -7,6 +7,8 @@ namespace Eshop
 {
     internal class Shop
     {
+        public List<Item> Items = new List<Item>();
+
         //public readonly string _name;
 
         //public Shop( string name)
@@ -19,16 +21,12 @@ namespace Eshop
 
         //}
 
-        //public string GetInfo()
-        //{
-        //    return "glkadjga;dfgadofgaodi";
-        //}
-
-
-
         public void ListItems()
         {
-            // list items
+            foreach (var item in Items)
+            {
+                Console.WriteLine(item.Name);
+            }
         }
 
         public void Buy(string itemName, int quantity)
@@ -36,26 +34,18 @@ namespace Eshop
             // to buy items
         }
 
-        public void LoadItems(string v1, int v2)
+        public void LoadItems(string v1, decimal v2, int v3)
         {
-            //to load items
-            //if (v1 == Item.Name)
+
+            
             //{
+            //    new Item { Price = v2, Name = v1, Quantity = v3 },
+            //};
+            Items.Add(new Item { Name = v1, Quantity = v3, Price = v2 });
 
-            //}
-            List<Item> items = new List<Item>()
+            foreach (var item in Items)
             {
-                new Item{ Price=1.2M, Name="Cup", Quantity=59 },
-                new Item{ Price=8.99M, Name="Book", Quantity=25 },
-                new Item{ Price=3.2M, Name="Candy", Quantity=460 }
-            };
-
-            foreach (var item in items)
-            {
-                if (v1 == item.Name)
-                {
-                    // then pridedam cenu
-                }
+                Console.WriteLine(item.Name);
             }
         }
     }
