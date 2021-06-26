@@ -15,7 +15,10 @@ namespace Eshop
 
             while (command != "Exit")
             {
+                Console.WriteLine("////////////////////");
+                Console.WriteLine("Welcome To SHOP");
                 Console.WriteLine("Enter command 'add', 'buy', 'list'");
+                Console.WriteLine("////////////////////");
 
                 try
                 {
@@ -27,7 +30,7 @@ namespace Eshop
                     {
                         case "add":
                             Console.Write("Enter item name: ");
-                            string Name = Console.ReadLine();
+                            string Name = Console.ReadLine().ToLower();
                             Console.Write("Enter item price: ");
                             decimal Price = Convert.ToDecimal(Console.ReadLine());
                             Console.Write("Enter item quantity: ");
@@ -35,8 +38,11 @@ namespace Eshop
                             shop.LoadItems(Name, Price, Quantity);
                             break;
                         case "buy":
-
-                            Console.WriteLine("Case 2");
+                            Console.Write("Enter item name you want to buy: ");
+                            string itemName = Console.ReadLine().ToLower();
+                            Console.Write("Enter item quantity you want to buy: ");
+                            int quantity = Convert.ToInt32(Console.ReadLine());
+                            shop.Buy(itemName, quantity);
                             break;
                         case "list":
                             shop.ListItems();
@@ -67,28 +73,7 @@ namespace Eshop
 
             //shop.LoadItems("ItemName", 50);
 
-            //var cup = new cup()
-            //{
-            //    name = "raudonas",
-            //    price = 12
-            //};
 
-            //var candy = new candy()
-            //{
-            //    name = "kregzdute",
-            //    price = 2
-            //};
-
-            //var book = new book()
-            //{
-            //    name = "vinetu",
-            //    price = 8,
-            //    author = "karlas majus"
-            //};
-
-            //var sum = calculationlibrary.sumnumbers(2, 5);
-
-            //console.writeline(book.todescriptionstring());
         }
     }
 }
