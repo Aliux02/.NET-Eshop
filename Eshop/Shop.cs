@@ -9,37 +9,43 @@ namespace Eshop
     {
         public List<Item> Items = new List<Item>();
 
+        public void WellcomeToShopMessage()
+        {
+            Console.WriteLine(Message.decoration);
+            Console.WriteLine(Message.wellcome);
+            Console.WriteLine(Message.enterCommand);
+            Console.WriteLine(Message.decoration);
+        }
+
         public void ListItems()
         {
             foreach (var item in Items)
             {
-                Console.WriteLine("/////////////////////////////");
-                Console.WriteLine("   Item name: " + item.Name.ToUpper() + "\n"+ "   Item price: " + item.Price + "\n" + "   Item quantity: " + item.Quantity);
-                Console.WriteLine("/////////////////////////////");
+                Console.WriteLine(Message.decoration);
+                Console.WriteLine("   Item name: " + item.Name.ToUpper() + "\n" + 
+                                  "   Item price: " + item.Price + "\n" + 
+                                  "   Item quantity: " + item.Quantity);
+                Console.WriteLine(Message.decoration);
             }
+            Console.WriteLine(Message.enterCommand);
         }
 
         public void Buy(string itemName, int quantity)
         {
-            // to buy items
             foreach (var item in Items)
             {
                 if (item.Name == itemName)
                 {
-                    item.Quantity = item.Quantity - quantity;
+                    item.Quantity = CalculationLibrary.Difnumbers(item.Quantity, quantity);
                 }
-                //Console.WriteLine(item.Quantity);
             }
+            Console.WriteLine(Message.enterCommand);
         }
 
         public void LoadItems(string v1, decimal v2, int v3)
         {
             Items.Add(new Item { Name = v1, Quantity = v3, Price = v2 });
-
-            //foreach (var item in Items)
-            //{
-            //    Console.WriteLine(item.Name);
-            //}
+            Console.WriteLine(Message.enterCommand);
         }
     }
 }
