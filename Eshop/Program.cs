@@ -1,4 +1,6 @@
-﻿using Eshop.Models;
+﻿using Eshop.Interfaces;
+using Eshop.Logers;
+using Eshop.Models;
 using Eshop.Models.Base;
 using System;
 using System.Collections.Generic;
@@ -7,13 +9,18 @@ namespace Eshop
 {
     class Program
     {
+
         static void Main(string[] args)
         {
+            AiLogger logger = new ConsoleLogger();
+
             var command = "";
             
-            var shop = new Shop();
+            var shop = new Shop(logger);
 
             shop.WellcomeToShopMessage();
+
+            // bandyti visa while perkelti i shopa arba i kita klase
 
             while (command != "Exit")
             {
@@ -22,6 +29,8 @@ namespace Eshop
                     var EnteredText = InputLibrary.UserInputString();
 
                     string[] ArrayOfEnteredText = EnteredText.Split(" ");
+
+                    
 
                     switch (ArrayOfEnteredText[0].ToLower())
                     {
@@ -63,18 +72,6 @@ namespace Eshop
                 //    Console.WriteLine($"Something went wrong {ex.Message}");
                 //}
             }
-
-
-
-            //var shop = new Shop();
-
-            //shop.ListItems();
-
-            //shop.Buy("ItemName", 50);
-
-            //shop.LoadItems("ItemName", 50);
-
-
         }
     }
 }
